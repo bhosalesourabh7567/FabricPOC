@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "CopyJob",
+    "displayName": "PL_LoadDimSalesTerritory"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "40100298-266d-8e58-4398-bb0a6078f226"
+  }
+}

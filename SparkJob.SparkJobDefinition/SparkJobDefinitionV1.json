@@ -1,0 +1,11 @@
+{
+  "executableFile": "sparkjob.py",
+  "defaultLakehouseArtifactId": "69ff38cf-5ff4-4fdb-8839-5100f4cb32f0",
+  "mainClass": "",
+  "additionalLakehouseIds": [],
+  "retryPolicy": null,
+  "commandLineArguments": "",
+  "additionalLibraryUris": [],
+  "language": "Python",
+  "environmentArtifactId": null
+}
