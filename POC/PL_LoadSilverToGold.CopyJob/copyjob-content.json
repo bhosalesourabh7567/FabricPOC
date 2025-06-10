@@ -1,0 +1,284 @@
+{
+  "properties": {
+    "jobMode": "CDC",
+    "source": {
+      "type": "DataWarehouseTable",
+      "connectionSettings": {
+        "type": "DataWarehouse",
+        "typeProperties": {
+          "workspaceId": "026f5f82-6f1a-4490-af92-058246f9e89a",
+          "artifactId": "867e9677-3ac6-4d21-89b9-e2f1a2d1339e",
+          "endPoint": "fa7b2jvkrnqezhe25fwe36cmhy-qjpw6aq2n6iejl4sawben6piti.datawarehouse.fabric.microsoft.com"
+        }
+      }
+    },
+    "destination": {
+      "type": "DataWarehouseTable",
+      "connectionSettings": {
+        "type": "DataWarehouse",
+        "typeProperties": {
+          "workspaceId": "026f5f82-6f1a-4490-af92-058246f9e89a",
+          "artifactId": "867e9677-3ac6-4d21-89b9-e2f1a2d1339e",
+          "endPoint": "fa7b2jvkrnqezhe25fwe36cmhy-qjpw6aq2n6iejl4sawben6piti.datawarehouse.fabric.microsoft.com"
+        }
+      }
+    },
+    "policy": {
+      "timeout": "0.12:00:00"
+    }
+  },
+  "activities": [
+    {
+      "id": "ff5542f8-f0d9-439e-804b-5ede48da8786",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "silver",
+            "table": "VW_DimCustomer"
+          },
+          "changeDataSettings": {
+            "readMethod": "SnapshotPlusIncremental",
+            "columns": [
+              {
+                "name": "CustomerKey",
+                "type": "Int32",
+                "physicalType": "int"
+              }
+            ]
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "datasetSettings": {
+            "schema": "Gold",
+            "table": "DimCustomer"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator",
+          "mappings": [
+            {
+              "source": {
+                "name": "CustomerKey",
+                "type": "Int32",
+                "physicalType": "int"
+              },
+              "destination": {
+                "name": "CustomerKey",
+                "physicalType": "int"
+              }
+            },
+            {
+              "source": {
+                "name": "FullName",
+                "type": "String",
+                "physicalType": "varchar",
+                "length": "8000"
+              },
+              "destination": {
+                "name": "FullName",
+                "physicalType": "varchar",
+                "length": "255"
+              }
+            },
+            {
+              "source": {
+                "name": "Title",
+                "type": "String",
+                "physicalType": "varchar",
+                "length": "8000"
+              },
+              "destination": {
+                "name": "Title",
+                "physicalType": "varchar",
+                "length": "20"
+              }
+            },
+            {
+              "source": {
+                "name": "FirstName",
+                "type": "String",
+                "physicalType": "varchar",
+                "length": "8000"
+              },
+              "destination": {
+                "name": "FirstName",
+                "physicalType": "varchar",
+                "length": "50"
+              }
+            },
+            {
+              "source": {
+                "name": "MiddleName",
+                "type": "String",
+                "physicalType": "varchar",
+                "length": "8000"
+              },
+              "destination": {
+                "name": "MiddleName",
+                "physicalType": "varchar",
+                "length": "50"
+              }
+            },
+            {
+              "source": {
+                "name": "LastName",
+                "type": "String",
+                "physicalType": "varchar",
+                "length": "8000"
+              },
+              "destination": {
+                "name": "LastName",
+                "physicalType": "varchar",
+                "length": "50"
+              }
+            },
+            {
+              "source": {
+                "name": "PersonID",
+                "type": "Int32",
+                "physicalType": "int"
+              },
+              "destination": {
+                "name": "PersonID",
+                "physicalType": "int"
+              }
+            },
+            {
+              "source": {
+                "name": "AddressLine1",
+                "type": "String",
+                "physicalType": "varchar",
+                "length": "8000"
+              },
+              "destination": {
+                "name": "AddressLine1",
+                "physicalType": "varchar",
+                "length": "255"
+              }
+            },
+            {
+              "source": {
+                "name": "AddressLine2",
+                "type": "String",
+                "physicalType": "varchar",
+                "length": "8000"
+              },
+              "destination": {
+                "name": "AddressLine2",
+                "physicalType": "varchar",
+                "length": "255"
+              }
+            },
+            {
+              "source": {
+                "name": "City",
+                "type": "String",
+                "physicalType": "varchar",
+                "length": "8000"
+              },
+              "destination": {
+                "name": "City",
+                "physicalType": "varchar",
+                "length": "100"
+              }
+            },
+            {
+              "source": {
+                "name": "StateProvince",
+                "type": "String",
+                "physicalType": "varchar",
+                "length": "8000"
+              },
+              "destination": {
+                "name": "StateProvince",
+                "physicalType": "varchar",
+                "length": "100"
+              }
+            },
+            {
+              "source": {
+                "name": "CountryRegion",
+                "type": "String",
+                "physicalType": "varchar",
+                "length": "8000"
+              },
+              "destination": {
+                "name": "CountryRegion",
+                "physicalType": "varchar",
+                "length": "100"
+              }
+            },
+            {
+              "source": {
+                "name": "PostalCode",
+                "type": "String",
+                "physicalType": "varchar",
+                "length": "8000"
+              },
+              "destination": {
+                "name": "PostalCode",
+                "physicalType": "varchar",
+                "length": "20"
+              }
+            },
+            {
+              "source": {
+                "name": "CountryRegionCode",
+                "type": "String",
+                "physicalType": "varchar",
+                "length": "8000"
+              },
+              "destination": {
+                "name": "CountryRegionCode",
+                "physicalType": "varchar",
+                "length": "10"
+              }
+            },
+            {
+              "source": {
+                "name": "StoreID",
+                "type": "Int32",
+                "physicalType": "int"
+              },
+              "destination": {
+                "name": "StoreID",
+                "physicalType": "int"
+              }
+            },
+            {
+              "source": {
+                "name": "TerritoryID",
+                "type": "Int32",
+                "physicalType": "int"
+              },
+              "destination": {
+                "name": "TerritoryID",
+                "physicalType": "int"
+              }
+            },
+            {
+              "source": {
+                "name": "CreatedDate",
+                "type": "DateTime",
+                "physicalType": "datetime"
+              },
+              "destination": {
+                "name": "CreatedDate",
+                "physicalType": "datetime2",
+                "precision": 3
+              }
+            }
+          ]
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    }
+  ]
+}
